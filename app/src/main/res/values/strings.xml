@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GroceryPal</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="username">username</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="confirmPassword">confirm password</string>
+    <string name="welcome">Welcome</string>
+</resources>
