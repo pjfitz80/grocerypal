@@ -2,6 +2,7 @@ package group4.tcss450.uw.edu.grocerypal450.fragment;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -41,6 +42,7 @@ public class RegisterFragment extends Fragment {
     public static final String TAG = "RegisterFragment";
     //private static final String REGISTER_URL = "http://10.0.2.2/grocerypal-php/register.php";
     private static final String REGISTER_URL = "https://limitless-chamber-51693.herokuapp.com/register.php";
+    //private static final String REGISTER_URL = "http://cssgate.insttech.washington.edu/~lambm6/grocerypal/register.php";
 
     private EditText mRegisterName;
     private EditText mRegisterEmail;
@@ -171,6 +173,14 @@ public class RegisterFragment extends Fragment {
     }
 
     private class RegisterTask extends AsyncTask<String, Void, String> {
+        private ProgressDialog dialog = new ProgressDialog(getActivity());
+
+        @Override
+        protected void onPreExecute() {
+            this.dialog.setMessage("Registering.");
+            this.dialog.show();
+        }
+
         @Override
         protected String doInBackground(String... strings) {
             if (strings.length != 4) {
@@ -182,6 +192,8 @@ public class RegisterFragment extends Fragment {
             try {
                 URL urlObject = new URL(url);
                 urlConnection = (HttpURLConnection) urlObject.openConnection();
+                urlConnection.setReadTimeout(10000);
+                urlConnection.setConnectTimeout(15000);
                 urlConnection.setRequestMethod("POST");
                 urlConnection.setDoOutput(true);
                 OutputStreamWriter wr = new OutputStreamWriter(urlConnection.getOutputStream());
@@ -208,6 +220,9 @@ public class RegisterFragment extends Fragment {
         }
         @Override
         protected void onPostExecute(String result) {
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
             boolean error = false;
             JSONObject response = null;
             try {

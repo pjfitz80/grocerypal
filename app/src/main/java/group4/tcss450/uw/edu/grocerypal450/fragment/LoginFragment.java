@@ -1,6 +1,7 @@
 package group4.tcss450.uw.edu.grocerypal450.fragment;
 
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -41,7 +42,7 @@ public class LoginFragment extends Fragment {
     public static final String TAG = "LoginFragment";
     //private static final String LOGIN_URL = "http://10.0.2.2/grocerypal-php/login.php";
     private static final String LOGIN_URL = "https://limitless-chamber-51693.herokuapp.com/login.php";
-
+    //private static final String LOGIN_URL = "http://cssgate.insttech.washington.edu/~lambm6/grocerypal/login.php";
     private EditText mLoginEmail, mLoginPassword;
 
     public LoginFragment() {
@@ -129,6 +130,14 @@ public class LoginFragment extends Fragment {
     }
 
     private class LoginTask extends AsyncTask<String, Void, String> {
+        private ProgressDialog dialog = new ProgressDialog(getActivity());
+
+        @Override
+        protected void onPreExecute() {
+            this.dialog.setMessage("Logging in.");
+            this.dialog.show();
+        }
+
         @Override
         protected String doInBackground(String... strings) {
             if (strings.length != 3) {
@@ -140,6 +149,8 @@ public class LoginFragment extends Fragment {
             try {
                 URL urlObject = new URL(url);
                 urlConnection = (HttpURLConnection) urlObject.openConnection();
+                urlConnection.setReadTimeout(10000);
+                urlConnection.setConnectTimeout(15000);
                 urlConnection.setRequestMethod("POST");
                 urlConnection.setDoOutput(true);
                 OutputStreamWriter wr = new OutputStreamWriter(urlConnection.getOutputStream());
@@ -165,6 +176,9 @@ public class LoginFragment extends Fragment {
         }
         @Override
         protected void onPostExecute(String result){
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
             // Something wrong with the network or the URL.
             boolean error = false;
             JSONObject response = null;
