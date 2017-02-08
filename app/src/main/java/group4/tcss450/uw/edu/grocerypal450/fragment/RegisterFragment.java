@@ -40,7 +40,7 @@ public class RegisterFragment extends Fragment {
 
     public static final String TAG = "RegisterFragment";
     //private static final String REGISTER_URL = "http://10.0.2.2/grocerypal-php/register.php";
-    private static final String REGISTER_URL = "http://cssgate.insttech.washington.edu/~lambm6/grocerypal/register.php";
+    private static final String REGISTER_URL = "https://limitless-chamber-51693.herokuapp.com/register.php";
 
     private EditText mRegisterName;
     private EditText mRegisterEmail;

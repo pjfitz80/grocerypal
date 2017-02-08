@@ -40,7 +40,7 @@ public class LoginFragment extends Fragment {
 
     public static final String TAG = "LoginFragment";
     //private static final String LOGIN_URL = "http://10.0.2.2/grocerypal-php/login.php";
-    private static final String LOGIN_URL = "http://cssgate.insttech.washington.edu/~lambm6/grocerypal/login.php";
+    private static final String LOGIN_URL = "https://limitless-chamber-51693.herokuapp.com/login.php";
 
     private EditText mLoginEmail, mLoginPassword;
 
