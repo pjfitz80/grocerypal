@@ -11,12 +11,14 @@ import group4.tcss450.uw.edu.grocerypal450.R;
 import group4.tcss450.uw.edu.grocerypal450.fragment.ProfileFragment;
 import group4.tcss450.uw.edu.grocerypal450.fragment.RecipeResults;
 import group4.tcss450.uw.edu.grocerypal450.fragment.RecipeSearch;
+import group4.tcss450.uw.edu.grocerypal450.fragment.ShoppingListFragment;
 
 /**
  * This class handles all fragments related to a user's profile, such as
  * searching for recipes, editing inventory, and editing shopping lists.
  */
-public class ProfileActivity extends AppCompatActivity implements RecipeSearch.OnFragmentInteractionListener {
+public class ProfileActivity extends AppCompatActivity implements RecipeSearch.OnFragmentInteractionListener, ShoppingListFragment.OnFragmentInteractionListener {
+
 
     private ProfileFragment mProfileFragment;
 
@@ -37,15 +39,16 @@ public class ProfileActivity extends AppCompatActivity implements RecipeSearch.O
     }
 
     @Override
-    public void onFragmentInteraction(String jsonRecipes) {
-        RecipeResults resultsFragment = new RecipeResults();
-        Bundle args = new Bundle();
-        args.putString("jsonRecipes", jsonRecipes);
-        resultsFragment.setArguments(args);
-        FragmentTransaction transaction = getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.ProfileActivity_Frame, resultsFragment)
-                .addToBackStack(null);
-        transaction.commit();
+    public void onFragmentInteraction(String tag, String text) {
+//        RecipeResults resultsFragment = new RecipeResults();
+//        Bundle args = new Bundle();
+//        //args.putString("jsonRecipes", jsonRecipes);
+//        resultsFragment.setArguments(args);
+//        FragmentTransaction transaction = getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.ProfileActivity_Frame, resultsFragment)
+//                .addToBackStack(null);
+//        transaction.commit();
     }
+
 }
