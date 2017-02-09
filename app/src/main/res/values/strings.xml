@@ -7,6 +7,8 @@
     <string name="password">password</string>
     <string name="confirmPassword">confirm password</string>
     <string name="welcome">Welcome</string>
+    <string name="searchHint">search by ingredient or recipe</string>
+    <string name="search">Search Recipes</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

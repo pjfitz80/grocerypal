@@ -1,11 +1,13 @@
 package group4.tcss450.uw.edu.grocerypal450.fragment;
 
+import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -40,14 +42,28 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
         mShowName = (TextView) v.findViewById(R.id.showName);
-        mShowEmail = (TextView) v.findViewById(R.id.showPassword);
+        mShowEmail = (TextView) v.findViewById(R.id.showEmail);
         updateContent(mNameEmail.get(0), mNameEmail.get(1));
+        Button b = (Button) v.findViewById(R.id.goToSearch);
+        b.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                goToSearch();
+            }
+        });
         return v;
     }
 
     public void updateContent(String name, String email) {
         mShowName.setText(name);
         mShowEmail.setText(email);
+    }
+
+    private void goToSearch(){
+
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        RecipeSearch fragment = new RecipeSearch();
+        ft.replace(R.id.ProfileActivity_Frame, fragment, RecipeSearch.TAG);
+        ft.commit();
     }
 /*
     public void onButtonPressed(Uri uri) {

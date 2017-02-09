@@ -2,12 +2,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="group4.tcss450.uw.edu.grocerypal450.fragment.RecipeSearch">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Recipe Search Placeholder" />
 
+        <EditText
+            android:id="@+id/recipeSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            android:hint="@string/searchHint"
+            android:padding="10dp"
+            android:maxLines='1'
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey" />
+
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorAccent"
+            android:text="@string/search"
+            android:textColor="@color/black" />
+    </LinearLayout>
 </FrameLayout>

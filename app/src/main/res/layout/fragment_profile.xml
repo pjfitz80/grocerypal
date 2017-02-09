@@ -9,7 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,13 +32,22 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/showPassword"
+            android:id="@+id/showEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:layout_gravity="center_horizontal"
             android:text="Password"
             android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/goToSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="@color/colorAccent"
+            android:text="@string/search"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
