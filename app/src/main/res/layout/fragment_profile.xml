@@ -1,13 +1,14 @@
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="group4.tcss450.uw.edu.grocerypal450.activities.ProfileActivity"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/profilebg">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="395dp"
         android:layout_gravity="center"
         android:orientation="vertical"
         android:paddingLeft="20dp"
@@ -18,42 +19,42 @@
             android:text="@string/welcome"
             android:padding="10dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="24dp" />
 
         <TextView
             android:id="@+id/showName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:paddingBottom="5dp"
             android:layout_gravity="center_horizontal"
             android:text="Test Name"
             android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/showEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_gravity="center_horizontal"
-            android:text="Password"
-            android:textSize="20dp" />
 
         <Button
             android:id="@+id/goToSearch"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorAccent"
+            android:background="@drawable/btnprofilecustom"
             android:text="@string/search"
+            android:textColor="@color/black" />
+        <Button
+            android:id="@+id/goToInventory"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="@drawable/btnprofilecustom"
+            android:text="@string/btn_inventory"
             android:textColor="@color/black" />
         <Button
             android:id="@+id/goToShoppingList"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorAccent"
+            android:background="@drawable/btnprofilecustom"
             android:text="@string/btn_shoppingList"
             android:textColor="@color/black" />
 

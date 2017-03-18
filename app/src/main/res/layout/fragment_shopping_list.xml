@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_shopping_list"
@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/white"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
     tools:context="group4.tcss450.uw.edu.grocerypal450.fragment.ShoppingListFragment"
     android:weightSum="1">
@@ -22,26 +22,32 @@
 
         <AutoCompleteTextView
             android:layout_width="168dp"
-            android:layout_height="35dp"
+            android:layout_height="match_parent"
             android:inputType="textPersonName"
             android:hint="@string/text_addIngredientsToList"
-            android:textSize="14dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
             android:completionThreshold="2"
             android:id="@+id/shopListEditTextSearch"
-            android:layout_weight="0.94" />
+            android:layout_weight="0.75" />
 
         <Button
             android:text="@string/text_add"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:background="@drawable/btnshoppingcustom"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:background="@drawable/custombtnborder"
             android:id="@+id/shopListBtnAdd" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3" />
 
         <Button
             android:text="@string/text_remove"
-            android:textColor="@color/white"
-            android:background="@drawable/custombtnborder"
+            android:textColor="@color/black"
+            android:background="@drawable/btnshoppingcustom"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:id="@+id/shopListBtnRemove" />
@@ -49,7 +55,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.00"
         android:weightSum="1">
 
         <TextView
@@ -57,7 +62,13 @@
             android:textColor="@color/black"
             android:layout_width="129dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.99" />
+
+            android:layout_weight="0.76" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.22" />
 
         <Button
             android:layout_width="49dp"
@@ -67,15 +78,13 @@
     </LinearLayout>
 
 
-    <TextView
-        android:maxLines="100"
-        android:scrollbars="vertical"
+
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="328dp"
-        android:id="@+id/shopListTextView"
-        android:layout_weight="0.56"
-        android:textSize="16dp"
-        android:textColor="@color/black"/>
+        android:layout_height="313dp"
+        android:id="@+id/shopListListView"
+        android:layout_weight="0.74" />
+
 
     <LinearLayout
         android:orientation="horizontal"
@@ -83,21 +92,12 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:text="@string/text_load"
-            android:textColor="@color/white"
-            android:background="@drawable/custombtnborder"
+            android:text="@string/text_export"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/shopListBtnLoad"
-            android:layout_weight="0.15" />
-
-        <Button
-            android:text="@string/text_save"
-            android:textColor="@color/white"
-            android:background="@drawable/custombtnborder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/shopListBtnSave"
+            android:background="@drawable/btnshoppingcustom"
+            android:id="@+id/shopListBtnExport"
             android:layout_weight="0.15" />
     </LinearLayout>
 </LinearLayout>

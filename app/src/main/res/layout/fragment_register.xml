@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimaryLight">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -13,67 +13,73 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp" >
 
-        <TextView
-            android:text="GroceryPal"
-            android:textSize="30dp"
+        <ImageView
+            android:background="@drawable/title_small"
+            android:scaleType="fitXY"
             android:textAlignment="center"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginBottom="50dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="50dp" />
 
-        <EditText
-            android:id="@+id/registerUsername"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/white"
-            android:hint="@string/username"
-            android:inputType="text"
-            android:maxLines='1'
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
 
-        <EditText
-            android:id="@+id/registerEmail"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/white"
-            android:hint="@string/email"
-            android:inputType="text"
-            android:maxLines='1'
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
+            android:background="@color/colorPrimaryLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/registerPassword1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@color/white"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:maxLines='1'
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
+            <EditText
+                android:id="@+id/registerUsername"
+                android:hint="@string/username"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:maxLines='1' />
 
-        <EditText
-            android:id="@+id/registerPassword2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/white"
-            android:hint="@string/confirmPassword"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:maxLines='1'
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
+            android:background="@color/colorPrimaryLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/registerPassword1"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:maxLines='1' />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimaryLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/registerPassword2"
+                android:hint="@string/confirmPassword"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:maxLines='1' />
+
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/registerBtn"

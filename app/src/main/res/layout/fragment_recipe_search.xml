@@ -1,40 +1,143 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryLight"
+    android:orientation="vertical"
     tools:context="group4.tcss450.uw.edu.grocerypal450.fragment.RecipeSearch">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Recipe Search Placeholder" />
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/recipeSearch"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_marginBottom="10dp"
-            android:background="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/customborder"
+            android:completionThreshold="1"
             android:hint="@string/searchHint"
-            android:padding="10dp"
+            android:inputType="text"
             android:maxLines='1'
             android:textColor="@color/black"
             android:textColorHint="@color/grey" />
 
-        <Button
-            android:id="@+id/searchBtn"
-            android:layout_width="fill_parent"
+        <ImageView
+            android:id="@+id/addIngredient"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
-            android:text="@string/search"
+            android:layout_alignBottom="@+id/recipeSearch"
+            android:layout_alignRight="@+id/recipeSearch"
+            android:layout_alignTop="@+id/recipeSearch"
+            android:src="@drawable/ic_green_plus"
             android:textColor="@color/black" />
+
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/searchBtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/recipeSearch"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/btnprofilecustom"
+        android:text="@string/search"
+        android:textColor="@color/black" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/customborder"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioPlanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radioPlanner"/>
+
+        <RadioButton
+            android:id="@+id/radioSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radioSearch"/>
+
+        <RadioButton
+            android:id="@+id/radioFav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radioFav"
+            />
+
+    </RadioGroup>
+
+    <RelativeLayout
+        android:id="@+id/pageview_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp" />
+
+        <ImageView
+            android:id="@+id/left_nav"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignBottom="@+id/view_pager"
+            android:layout_alignLeft="@+id/view_pager"
+            android:layout_alignTop="@+id/view_pager"
+            android:layout_gravity="center_vertical|left"
+            android:src="@drawable/ic_chevron_left" />
+
+        <ImageView
+            android:id="@+id/right_nav"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignBottom="@+id/view_pager"
+            android:layout_alignRight="@+id/view_pager"
+            android:layout_alignTop="@+id/view_pager"
+            android:layout_gravity="center_vertical|right"
+            android:src="@drawable/ic_chevron_right" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/recycler_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dynamic_recipeList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recipeSearch"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+        </android.support.v7.widget.RecyclerView>
+
     </LinearLayout>
-</FrameLayout>
+
+
+</LinearLayout>
