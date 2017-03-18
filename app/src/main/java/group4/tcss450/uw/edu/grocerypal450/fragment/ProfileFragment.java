@@ -1,7 +1,7 @@
+
 package group4.tcss450.uw.edu.grocerypal450.fragment;
 
 import android.app.FragmentTransaction;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,22 +13,41 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import group4.tcss450.uw.edu.grocerypal450.R;
-import group4.tcss450.uw.edu.grocerypal450.fragment.ShoppingListFragment;
 
-
+/**
+ * This fragment display's the user's name and email and offers
+ * navigation options to the other fragments in the application.
+ * @author Michael Lambion
+ * @author Nico Tandyo
+ * @author Patrick Fitzgerald
+ */
 public class ProfileFragment extends Fragment {
+    /**
+     * TAG for ProfileFragment
+     */
     public static final String TAG = "ProfileFragment";
+    /**
+     * Key to retrieve arguments sent from MainActivity.
+     */
     public static final String KEY = "userInfo";
-
+    /**
+     * ArrayList containing the arguments passed from MainActivity.
+     */
     private ArrayList<String> mNameEmail;
-
+    /** TextView to show the name. */
     private TextView mShowName;
-    private TextView mShowEmail;
 
+    /**
+     * Construct for ProfileFragment.
+     */
     public ProfileFragment() {
         // Required empty public constructor
     }
 
+    /**
+     * {@inheritDoc}
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,34 +57,70 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     * Displays the user's name and email and set's listener to
+     * buttons to take the user to other features of the app.
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
+        getActivity().setTitle(getResources().getString(R.string.grocerypal_title));
         mShowName = (TextView) v.findViewById(R.id.showName);
-        mShowEmail = (TextView) v.findViewById(R.id.showEmail);
-        updateContent(mNameEmail.get(0), mNameEmail.get(1));
+        updateContent(mNameEmail.get(0));
         Button b = (Button) v.findViewById(R.id.goToSearch);
         b.setOnClickListener(new View.OnClickListener() {
+            /**
+             * {@inheritDoc}
+             * @param v
+             */
             public void onClick(View v) {
                 goToSearch();
             }
         });
         Button buttonShop = (Button) v.findViewById(R.id.goToShoppingList);
         buttonShop.setOnClickListener(new View.OnClickListener() {
+            /**
+             * {@inheritDoc}
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 goToShoppingList();
             }
         });
+
+        Button buttonInven = (Button) v.findViewById(R.id.goToInventory);
+        buttonInven.setOnClickListener(new View.OnClickListener() {
+            /**
+             * {@inheritDoc}
+             * @param v
+             */
+            @Override
+            public void onClick(View v) {
+                goToInventory();
+            }
+        });
+
         return v;
     }
 
-    public void updateContent(String name, String email) {
+    /**
+     * Set the text views to display the user's name.
+     * @param name Name to be shown
+     */
+    public void updateContent(String name) {
         mShowName.setText(name);
-        mShowEmail.setText(email);
     }
 
+    /**
+     * Replace this fragment with the RecipeSearch fragment.
+     */
     private void goToSearch(){
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -73,6 +128,23 @@ public class ProfileFragment extends Fragment {
         ft.replace(R.id.fragmentContainer, fragment, RecipeSearch.TAG);
         ft.addToBackStack(RecipeSearch.TAG).commit();
     }
+
+    /**
+     * Replace this fragment with the Inventory fragment.
+     */
+    private void goToInventory(){
+
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        InventoryFragment fragment = new InventoryFragment();
+        ft.replace(R.id.fragmentContainer, fragment, InventoryFragment.TAG);
+        ft.addToBackStack(InventoryFragment.TAG).commit();
+    }
+
+
+
+    /**
+     * Replace this fragment with the ShoppingList fragment.
+     */
     private void goToShoppingList(){
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -80,41 +152,4 @@ public class ProfileFragment extends Fragment {
         ft.replace(R.id.fragmentContainer, fragment, ShoppingListFragment.TAG);
         ft.addToBackStack(ShoppingListFragment.TAG).commit();
     }
-/*
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }*/
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-/*    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
-    }*/
 }
